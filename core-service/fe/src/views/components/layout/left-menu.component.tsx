@@ -12,10 +12,6 @@ export const LeftMenuComponent = () => {
     localStorage.removeItem(JWT_TOKEN);
     window.location.href = '/';
   };
-  // const onClickServiceMenu = (event: React.MouseEvent) => {
-  //   event.stopPropagation();
-  //   event.preventDefault();
-  // };
   return (
     <>
       <div className="user-info">
@@ -29,20 +25,15 @@ export const LeftMenuComponent = () => {
           </li>
         )}
         {!!pluginServices?.length && (
-          <li className="menu-item">
-            {/* <span className="menu-item-service" onClick={onClickServiceMenu}>
-              Services
-            </span>
-            <ul className="plugin-service-item"> */}
+          <>
             {pluginServices.map((item) => (
-              <li key={item.clientId}>
+              <li className="menu-item" key={item.clientId}>
                 <a href={`/plugin-service/${item.clientId}`}>
                   {item.clientName}
                 </a>
               </li>
             ))}
-            {/* </ul> */}
-          </li>
+          </>
         )}
       </ul>
     </>

@@ -33,7 +33,7 @@ class PluginFeatureIntegrationService {
   public actionFeature(clientId: string, data: PluginFeature) {
     return communicationApiIntegrationService.requestToClientId(
       clientId,
-      'action-submenu',
+      'action-feature',
       data,
     );
   }
@@ -46,7 +46,7 @@ class PluginFeatureIntegrationService {
       managerIntegrationService.checkRegisteredService(payload.clientId) &&
       payload.jwt === localStorage.getItem(JWT_TOKEN) &&
       payload.requestId &&
-      payload.action === 'register-plugin-submenu'
+      payload.action === 'register-plugin-feature'
     ) {
       this.clientPluginFeatures[payload.clientId] = payload.data;
       this.fireFeaturesChange();

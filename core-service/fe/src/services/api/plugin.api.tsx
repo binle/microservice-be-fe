@@ -57,11 +57,11 @@ export const asyncValidatePluginService = async (
   verifyData: PlugInServiceValidationDto,
 ): Promise<boolean> => {
   try {
-    await axiosInstance.post(
+    const response = await axiosInstance.post(
       `${window.env.be_url}/api/plugin/validate`,
       verifyData,
     );
-    return true;
+    return response.status === 200;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (ignore) {
     return false;

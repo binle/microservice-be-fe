@@ -60,14 +60,24 @@ class MainIntegrationService {
   }) {
     const signatureData = payload.data.signatureData;
     return await asyncValidatePluginService(signatureData)
-      .then(() => {
-        communicationApiIntegrationService.responseToClientId(
-          this.clientId as string,
-          payload.requestId,
-          localStorage.getItem(JWT_TOKEN),
-        );
-        this.resolveHandshake?.(true);
-        managerIntegrationService.addRegisteredService(this.clientId as string);
+      .then((result) => {
+        if (result) {
+          communicationApiIntegrationService.responseToClientId(
+            this.clientId as string,
+            payload.requestId,
+            localStorage.getItem(JWT_TOKEN),
+          );
+          this.resolveHandshake?.(true);
+          managerIntegrationService.addRegisteredService(
+            this.clientId as string,
+          );
+        } else {
+          communicationApiIntegrationService.responseToClientId(
+            this.clientId || '',
+            payload.requestId,
+          );
+          this.resolveHandshake?.(false);
+        }
         delete this.resolveHandshake;
       })
       .catch((error) => {
