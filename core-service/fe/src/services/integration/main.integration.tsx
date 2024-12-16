@@ -6,7 +6,7 @@ import {
   asyncValidatePluginService,
 } from '../api/plugin.api';
 import { communicationApiIntegrationService } from './communication-api.integration';
-import { storeIntegrationService } from './store.integration';
+import { managerIntegrationService } from './manager.integration';
 
 class MainIntegrationService {
   private clientId: string | undefined;
@@ -67,7 +67,7 @@ class MainIntegrationService {
           localStorage.getItem(JWT_TOKEN),
         );
         this.resolveHandshake?.(true);
-        storeIntegrationService.addRegisteredService(this.clientId as string);
+        managerIntegrationService.addRegisteredService(this.clientId as string);
         delete this.resolveHandshake;
       })
       .catch((error) => {

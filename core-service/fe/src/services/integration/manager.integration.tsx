@@ -1,4 +1,4 @@
-class StoreIntegrationService {
+class ManagerIntegrationService {
   private listRegisteredServices: { [key: string]: boolean } = {};
 
   addRegisteredService(clientId: string) {
@@ -10,4 +10,4 @@ class StoreIntegrationService {
   }
 }
 
-export const storeIntegrationService = new StoreIntegrationService();
+export const managerIntegrationService = new ManagerIntegrationService();

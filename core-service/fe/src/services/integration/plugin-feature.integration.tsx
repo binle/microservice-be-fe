@@ -1,5 +1,5 @@
 import * as uuid from 'uuid';
-import { storeIntegrationService } from './store.integration';
+import { managerIntegrationService } from './manager.integration';
 import { JWT_TOKEN } from '../../constants';
 import { PluginFeature } from '../../definitions';
 import { communicationApiIntegrationService } from './communication-api.integration';
@@ -43,7 +43,7 @@ class PluginFeatureIntegrationService {
     const payload = event.data;
     if (
       payload.clientId &&
-      storeIntegrationService.checkRegisteredService(payload.clientId) &&
+      managerIntegrationService.checkRegisteredService(payload.clientId) &&
       payload.jwt === localStorage.getItem(JWT_TOKEN) &&
       payload.requestId &&
       payload.action === 'register-plugin-submenu'

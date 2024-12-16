@@ -2,4 +2,4 @@
 export * from './communication-api.integration';
 export * from './main.integration';
 export * from './plugin-feature.integration';
-export * from './store.integration';
+export * from './manager.integration';
