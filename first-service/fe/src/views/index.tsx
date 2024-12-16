@@ -57,7 +57,7 @@ export const Application = () => {
             pluginFeatureIntegrationService.registerFeatures(features);
           }}
         >
-          Register Sub Menu
+          Register Features
         </button>
       )}
     </div>
