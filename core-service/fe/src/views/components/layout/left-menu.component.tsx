@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext } from 'react';
 import { JWT_TOKEN } from '../../../constants';
 import { ApplicationContext } from '../../../data';
@@ -11,10 +12,10 @@ export const LeftMenuComponent = () => {
     localStorage.removeItem(JWT_TOKEN);
     window.location.href = '/';
   };
-  const onClickServiceMenu = (event: React.MouseEvent) => {
-    event.stopPropagation();
-    event.preventDefault();
-  };
+  // const onClickServiceMenu = (event: React.MouseEvent) => {
+  //   event.stopPropagation();
+  //   event.preventDefault();
+  // };
   return (
     <>
       <div className="user-info">
@@ -29,18 +30,18 @@ export const LeftMenuComponent = () => {
         )}
         {!!pluginServices?.length && (
           <li className="menu-item">
-            <span className="menu-item-service" onClick={onClickServiceMenu}>
+            {/* <span className="menu-item-service" onClick={onClickServiceMenu}>
               Services
             </span>
-            <ul className="plugin-service-item">
-              {pluginServices.map((item) => (
-                <li key={item.clientId}>
-                  <a href={`/plugin-service/${item.clientId}`}>
-                    {item.clientName}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ul className="plugin-service-item"> */}
+            {pluginServices.map((item) => (
+              <li key={item.clientId}>
+                <a href={`/plugin-service/${item.clientId}`}>
+                  {item.clientName}
+                </a>
+              </li>
+            ))}
+            {/* </ul> */}
           </li>
         )}
       </ul>

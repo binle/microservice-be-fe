@@ -28,3 +28,11 @@ export interface PlugInServiceValidationDto {
   nonce: string;
   signature: string;
 }
+
+export interface PluginSubMenu {
+  id: string;
+  label: string;
+  actionData: unknown;
+
+  func: () => void;
+}

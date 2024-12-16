@@ -1,25 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PlugInServiceResponseDto } from '../../../definitions';
 import {
   asyncGetPluginServiceDetail,
-  coreIntegrationService,
+  mainIntegrationService,
 } from '../../../services';
 import './plugin-service.scss';
+import { ApplicationContext } from '../../../data';
 
 export const PluginServicePage = () => {
+  const { contextData, setContextData } = useContext(ApplicationContext);
+
   const params = useParams();
   const [pluginService, setPluginService] = useState<
     PlugInServiceResponseDto | undefined
   >();
-  const [status, setStatus] = useState<boolean>();
+  const [status, setStatus] = useState<string>();
 
   useEffect(() => {
     asyncGetPluginServiceDetail(params.id as string).then((pluginService) => {
-      coreIntegrationService
-        .startChannel(pluginService.clientId, pluginService.clientUrl)
+      setContextData({ ...contextData, selectedPluginService: pluginService });
+      setStatus('checking');
+      mainIntegrationService
+        .listenHandshake(pluginService.clientId, pluginService.clientUrl)
         .then((result) => {
-          setStatus(result);
+          console.log({ result });
+          setStatus(result ? 'checked' : 'not correct');
         });
       setPluginService(pluginService);
     });
@@ -31,13 +37,15 @@ export const PluginServicePage = () => {
 
   return (
     <>
-      <div
-        className="plugin-service-page"
-        style={{ display: status ? 'flex' : 'none' }}
-      >
-        <iframe id={pluginService.clientId} src={pluginService.clientUrl} />
-      </div>
-      {!status && <div> Service validate failed!!!</div>}
+      {status !== 'checked' && <div> Service is {status}!!!</div>}
+      {status !== 'not correct' && (
+        <div
+          className="plugin-service-page"
+          style={{ display: status === 'checked' ? 'flex' : 'none' }}
+        >
+          <iframe id={pluginService.clientId} src={pluginService.clientUrl} />
+        </div>
+      )}
     </>
   );
 };
