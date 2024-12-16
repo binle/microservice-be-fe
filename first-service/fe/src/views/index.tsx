@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { IJwtUser, PluginFeature } from '../definitions';
 // import { asyncInit } from '../services';
-import { mainIntegrationService } from '../services';
+import {
+  mainIntegrationService,
+  pluginFeatureIntegrationService,
+} from '../services';
 
 export const Application = () => {
   const [data, setData] = useState<{
@@ -51,7 +54,7 @@ export const Application = () => {
                 },
               },
             ];
-            mainIntegrationService.registerFeatures(features);
+            pluginFeatureIntegrationService.registerFeatures(features);
           }}
         >
           Register Sub Menu
