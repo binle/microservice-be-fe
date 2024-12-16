@@ -4,7 +4,7 @@ import { ApplicationContext, defaultContextData } from '../../../data';
 import { IContextData } from '../../../definitions';
 import './layout.scss';
 import { LeftMenuComponent } from './left-menu.component';
-import { pluginSubMenuIntegrationService } from '../../../services';
+import { pluginFeatureIntegrationService } from '../../../services';
 
 export const LayoutComponent = (data: IContextData) => {
   const [contextData, setContextData] = useState<IContextData>({
@@ -15,12 +15,12 @@ export const LayoutComponent = (data: IContextData) => {
   const clientId = contextData.selectedPluginService?.clientId;
 
   useEffect(() => {
-    pluginSubMenuIntegrationService.onPluginSubMenuChange(() => {
+    pluginFeatureIntegrationService.onPluginFeatureChange(() => {
       const pluginServices = contextData.pluginServices || [];
 
       for (const pluginService of pluginServices) {
-        pluginService.subMenus =
-          pluginSubMenuIntegrationService.getPluginSubMenus(
+        pluginService.features =
+          pluginFeatureIntegrationService.getPluginFeatures(
             pluginService.clientId,
           );
         console.log({ contextData });
@@ -50,12 +50,12 @@ export const LayoutComponent = (data: IContextData) => {
         )}
         <div className="content">
           <div className="sub-menu">
-            {pluginService?.subMenus?.map((sItem, index) => (
+            {pluginService?.features?.map((sItem, index) => (
               <button
                 key={index}
                 onClick={() => {
-                  pluginSubMenuIntegrationService
-                    .actionOnSubMenu(pluginService.clientId, sItem)
+                  pluginFeatureIntegrationService
+                    .actionFeature(pluginService.clientId, sItem)
                     .catch(console.error);
                 }}
               >

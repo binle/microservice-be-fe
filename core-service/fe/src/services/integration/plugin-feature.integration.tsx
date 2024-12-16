@@ -1,21 +1,21 @@
 import * as uuid from 'uuid';
 import { storeIntegrationService } from './store.integration';
 import { JWT_TOKEN } from '../../constants';
-import { PluginSubMenu } from '../../definitions';
+import { PluginFeature } from '../../definitions';
 import { communicationApiIntegrationService } from './communication-api.integration';
 
-class PluginSubMenuIntegrationService {
+class PluginFeatureIntegrationService {
   private listeners: {
     [key: string]: { func: () => void; clientId?: string };
   } = {};
 
-  private clientPluginSubMenus: { [key: string]: PluginSubMenu[] } = {};
+  private clientPluginFeatures: { [key: string]: PluginFeature[] } = {};
 
   constructor() {
     window.addEventListener('message', this.handleMessage.bind(this), false);
   }
 
-  public onPluginSubMenuChange(
+  public onPluginFeatureChange(
     func: () => void,
     clientId?: string,
   ): () => void {
@@ -26,11 +26,11 @@ class PluginSubMenuIntegrationService {
     };
   }
 
-  public getPluginSubMenus(clientId: string) {
-    return this.clientPluginSubMenus[clientId];
+  public getPluginFeatures(clientId: string) {
+    return this.clientPluginFeatures[clientId];
   }
 
-  public actionOnSubMenu(clientId: string, data: PluginSubMenu) {
+  public actionFeature(clientId: string, data: PluginFeature) {
     return communicationApiIntegrationService.requestToClientId(
       clientId,
       'action-submenu',
@@ -48,8 +48,8 @@ class PluginSubMenuIntegrationService {
       payload.requestId &&
       payload.action === 'register-plugin-submenu'
     ) {
-      this.clientPluginSubMenus[payload.clientId] = payload.data;
-      this.fireSubmenuChange();
+      this.clientPluginFeatures[payload.clientId] = payload.data;
+      this.fireFeaturesChange();
       communicationApiIntegrationService.responseToClientId(
         payload.clientId,
         payload.requestId,
@@ -57,7 +57,7 @@ class PluginSubMenuIntegrationService {
     }
   }
 
-  private fireSubmenuChange(clientId?: string) {
+  private fireFeaturesChange(clientId?: string) {
     for (const key in this.listeners) {
       if (clientId && this.listeners[key]?.clientId === clientId) {
         this.listeners[key]?.func();
@@ -68,5 +68,5 @@ class PluginSubMenuIntegrationService {
   }
 }
 
-export const pluginSubMenuIntegrationService =
-  new PluginSubMenuIntegrationService();
+export const pluginFeatureIntegrationService =
+  new PluginFeatureIntegrationService();

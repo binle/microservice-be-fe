@@ -11,7 +11,7 @@ export interface IJwtUser {
   exp: number;
 }
 
-export interface PluginSubMenu {
+export interface PluginFeature {
   id: string;
   label: string;
   actionData: unknown;
@@ -21,7 +21,7 @@ export interface IAuthenticatedData {
   user?: IJwtUser;
   selectedPluginService?: PlugInServiceResponseDto;
   pluginServices?: (PlugInServiceResponseDto & {
-    subMenus?: PluginSubMenu[];
+    features?: PluginFeature[];
   })[];
 }
 

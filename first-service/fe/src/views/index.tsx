@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IJwtUser, PluginSubMenu } from '../definitions';
+import { IJwtUser, PluginFeature } from '../definitions';
 // import { asyncInit } from '../services';
 import { mainIntegrationService } from '../services';
 
@@ -33,7 +33,7 @@ export const Application = () => {
       {!data?.feature && (
         <button
           onClick={() => {
-            const subMenus: PluginSubMenu[] = [
+            const features: PluginFeature[] = [
               {
                 id: '1',
                 label: 'Feature 1',
@@ -51,7 +51,7 @@ export const Application = () => {
                 },
               },
             ];
-            mainIntegrationService.registerSubMenu(subMenus);
+            mainIntegrationService.registerFeatures(features);
           }}
         >
           Register Sub Menu

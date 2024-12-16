@@ -29,7 +29,7 @@ export interface PlugInServiceValidationDto {
   signature: string;
 }
 
-export interface PluginSubMenu {
+export interface PluginFeature {
   id: string;
   label: string;
   actionData: unknown;
