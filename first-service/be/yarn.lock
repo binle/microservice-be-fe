@@ -949,63 +949,63 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@bakku/common@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/common/-/common-4.0.3.tgz#868558f7e638c1d6dd70bba81d64774531cf9913"
-  integrity sha512-XCXl23QEmckFarLyLxZrnL2nR0IVDPdatq72d1mV+TZjolvupZMSUVHS0PVIaZNQ9Waww/9VkUiD/F3uR8m4Bw==
+"@bakku/common@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/common/-/common-4.0.4.tgz#3836b0e9007228940e22c94097efeff94e79da03"
+  integrity sha512-GhMLITO3Q6bqE7Ma3hsLJApV+/4c4dPf8uui9dNa95au2S8Onybv0QhgtkeGtX9gEq6g0zFubZLUTHTX+/eCmg==
   dependencies:
     express "^4.18.1"
     multer "^1.4.5-lts.1"
 
-"@bakku/core@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/core/-/core-4.0.3.tgz#2a1f6c9f35afffe884c20d4de1865932462ab089"
-  integrity sha512-F7FGeCYSZhBNrYGOwIovNq6meypuqpGRxnzg4n/KOcKkgTEAIS93zc+lwKN/6CPi66rfzt30NE2RX9yYXBthnA==
+"@bakku/core@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/core/-/core-4.0.4.tgz#85670fb15b05f926f5e78cfd07d3f2503272e79d"
+  integrity sha512-+aT4lSiAx19wXkQux+C8ABjFXglJcorkn/n58wP5mcI0nxN0Fxs1+V6xkT/pxDFHrLxfHM8AwQuCNubyqbmvXg==
   dependencies:
-    "@bakku/common" "^4.0.3"
-    "@bakku/document" "^4.0.3"
-    "@bakku/validation" "^4.0.3"
+    "@bakku/common" "^4.0.4"
+    "@bakku/document" "^4.0.4"
+    "@bakku/validation" "^4.0.4"
     lodash "^4.17.21"
     reflect-metadata "^0.1.13"
 
-"@bakku/document@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/document/-/document-4.0.3.tgz#febf319a6def4d6b2492d692e867617efe40a3fb"
-  integrity sha512-mEmJUVuzezPGsnUCLbTWnOrNKwszP4wNu942AeINv19tk2Xmxj92h0b8LfVbwIdTGYFpK3qEAuAS0X/AQ6tvcw==
+"@bakku/document@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/document/-/document-4.0.4.tgz#e2785d26601d1b3112cba6b7cb89bf929609b0ae"
+  integrity sha512-jm9EEdNnKdbD9hiCwo3ZApi97r1irYYRAUsA9N4kqTRk158s82PUsSLDJUhsMz1XgoJUL5TaRf6FIvLsOvr2/A==
   dependencies:
-    "@bakku/common" "^4.0.3"
-    "@bakku/validation" "^4.0.3"
+    "@bakku/common" "^4.0.4"
+    "@bakku/validation" "^4.0.4"
     "@types/lodash" "^4.14.182"
     lodash "^4.17.21"
 
-"@bakku/logger@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/logger/-/logger-4.0.3.tgz#8206c8bd484657ecc96d1ff59a7f43375000c372"
-  integrity sha512-gVP5SC9U6H1FgT8L7ZTNkmfOt7bN4GtzLoPjsRd3L+6BPzsZIsIFVsu1tSOvukgIjL2ElS3OntXsfFdHacnLSQ==
+"@bakku/logger@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/logger/-/logger-4.0.4.tgz#53451a836a18fd6686efd3ef0be36a5717f9c5bd"
+  integrity sha512-+CI4xxNmT8o5/Si6LsSKklgtF3xqPhv/gbKApiT/B6tLIVHzujF/ERyfvUG3I2dwygMyV9pMCCCWCOJZ6BvT9g==
   dependencies:
     moment "^2.29.3"
     tslog "^3.2.0"
 
-"@bakku/platform@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/platform/-/platform-4.0.3.tgz#3b76c24a5d6db5f7786b40f43ce0e7d398aca324"
-  integrity sha512-YmA1CAXRzUYTWlZ7H2gLMg37dd2XIAc7JHh7hv57eWJAekBJzy1x7R9dawZwdE0V4/QzUNu/+aGY4o2B/M+BPw==
+"@bakku/platform@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/platform/-/platform-4.0.4.tgz#cb67eeca2e3dadbceb4b6275c5107be50ca0210f"
+  integrity sha512-8CLiQOt0HhejKx4tWYXV9gTF0i0LYXUNO8dA1lSw5MBIGwxbDTNsu5fZWNFVUMMB5kbBypHYecbywFBFT7gO7w==
   dependencies:
-    "@bakku/common" "^4.0.3"
-    "@bakku/core" "^4.0.3"
-    "@bakku/document" "^4.0.3"
-    "@bakku/validation" "^4.0.3"
+    "@bakku/common" "^4.0.4"
+    "@bakku/core" "^4.0.4"
+    "@bakku/document" "^4.0.4"
+    "@bakku/validation" "^4.0.4"
     "@types/cors" "^2.8.12"
     cookie-parser "^1.4.6"
     cors "^2.8.5"
     ejs "^3.1.8"
 
-"@bakku/validation@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@bakku/validation/-/validation-4.0.3.tgz#6f21f5999083d1ae43e9d733d8ccfe81e5ad36be"
-  integrity sha512-tN1NoH/cTMz3/v1QJfRMADPUXZr/tDBnQstZmBeSRFKt4cxv1Q3pitz23vPjsITR776chHrGWpC+HIzFMosf/w==
+"@bakku/validation@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@bakku/validation/-/validation-4.0.4.tgz#eb9e736cb90237a7bf3ba80a89ca10bb338d47f9"
+  integrity sha512-em79uZnTgPU7n7RP1gnC+gDs/uJWo2H9RTHzOa8ZGepo537npOomL/AiMAhUDvDBZ1wjhA0Utcr33IvWIstApQ==
   dependencies:
-    "@bakku/common" "^4.0.3"
+    "@bakku/common" "^4.0.4"
     moment "^2.29.3"
 
 "@bcoe/v8-coverage@^0.2.3":
